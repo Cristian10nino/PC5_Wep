@@ -1,17 +1,28 @@
 
-  const routes = [
-    {
-      path: "/dashboard",
-      component: () => import("layouts/MainLayout.vue"),
-      children: [
-        { path: "", component: () => import("pages/IndexPage.vue") }, // Página de inicio
+const routes = [
+  {
+    path: "/dashboard",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/IndexPage.vue") },
+      {
+        path: "movie",
+        component: () => import("pages/PeliculaPage.vue"),
+      },
+      {
+        path: "cart",
+        component: () => import("pages/CartPage.vue"),
+      },
+    ],
+  },
+  // Always leave this as last one,
+  // but you can also remove it
+  {
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-        { path: "Pelicula", component: () => import("pages/PeliculaPage.vue") }, // Página de Película
+export default routes;
 
-        { path: "cart", component: () => import("pages/ListaAgrPage.vue") }, // Página de Carrito
-      ],
-    },
-  ];
-
-  export default routes;
 

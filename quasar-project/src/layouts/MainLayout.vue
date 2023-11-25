@@ -48,6 +48,9 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
+import { userCartStore } from 'src/stores/cart-store'
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 
 const linksList = [
   {
